@@ -7,8 +7,9 @@ this page is guide for developers.
 
 
 = Details =
+details index.
+  * [GettingStart# setting up sonic.jar]
+  * create "Action" class
+  * create "Service" class
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== setting up sonic.jar ==
