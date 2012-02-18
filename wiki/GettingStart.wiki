@@ -8,12 +8,12 @@ this page is guide for developers.
 
 = Details =
 details index.
-  * [ setting up sonic.jar ]
+  * setting up sonic.jar
   * create "Action" class
   * create "Service" class
 
 === setting up sonic.jar ===
- ** download sonic.zip from this page[http://code.google.com/p/sonic-project/downloads/list]
+ ** download sonic.zip from this page [http://code.google.com/p/sonic-project/downloads/list]
  *** setting your GAE project on eclipse.
     # unzip sonic.zip
     # put sonic.jar to directory that is "your-gae-project/war/WEB-INF/lib"
@@ -34,4 +34,19 @@ details index.
 	</servlet-mapping>
     }}}
     
-    
+
+=== create "Action" class ===
+ # create Action package.
+   e.g.) your.apps.action.package
+ # create Action class.
+   Action class needs extends "com.googlecode.sonic.action.ActionSupport"
+   {{{
+   package your.apps.action.package;
+
+   import com.googlecode.sonic.action.ActionSupport;
+
+   public class IndexAction extends ActionSupport {
+       private static final long serialVersionUID = 321255017934978886L;
+   }
+   }}}
+ # create public method has no argument.
