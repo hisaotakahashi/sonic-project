@@ -103,7 +103,7 @@ details index.
 	   return SUCCESS;
        }
  
-       private Object getMessage() {
+       private String getMessage() {
            return new StringBuilder()
                       .append("Hello,").append("Sonic Project.")
 		      .toString();
