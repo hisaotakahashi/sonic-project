@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0_29 (Sun Microsystems Inc./Apple Inc.)
+Built-By: hisao takahashi
+Build-Jdk: 1.6.0_29
+Specification-Title: Sonic-Project
+Specification-Version: 1.0
+Implementation-Title: Sonic-Project
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.googlecode.sonic
+Implementation-Vendor: Sonic-Project

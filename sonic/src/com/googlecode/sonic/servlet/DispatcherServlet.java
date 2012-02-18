@@ -88,10 +88,6 @@ public class DispatcherServlet extends HttpServlet {
 			encoding = defaultEncoding;
 	}
 	
-	private class EncodingAware {
-		//TODO
-	}
-
 	@Override
 	public void destroy() {
 		RequestMappingAnnotaionHolder.expire();

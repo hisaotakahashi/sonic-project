@@ -15,13 +15,13 @@
  */
 package com.googlecode.sonic.util;
 
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.CREATE_DATE;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.CREATE_USER;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.DELETED;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.KIND;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.UPDATE_DATE;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.UPDATE_USER;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.ID;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.CREATE_DATE;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.CREATE_USER;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.DELETED;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.KIND;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.UPDATE_DATE;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.UPDATE_USER;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.ID;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
