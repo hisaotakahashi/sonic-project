@@ -111,3 +111,5 @@ details index.
    }
    }}}
  # run jetty, and request to [ http://localhost:8888/index.gae ]
+   It is surely displayed on your browser "Hello,Sonic Project. ".
+   
