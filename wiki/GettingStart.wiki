@@ -8,8 +8,9 @@ this page is guide for developers.
 
 = Details =
 details index.
-  * [GettingStart#setting up sonic.jar]
+  * setting_up sonic.jar
   * create "Action" class
   * create "Service" class
 
-== setting up sonic.jar ==
+=== setting up sonic.jar ===
+ ** download sonic.jar [http://code.google.com/p/sonic-project/downloads/list]
