@@ -8,7 +8,7 @@ this page is guide for developers.
 
 = Details =
 details index.
-  * [GettingStart# setting up sonic.jar]
+  * [GettingStart#setting up sonic.jar]
   * create "Action" class
   * create "Service" class
 
