@@ -10,7 +10,7 @@ this page is guide for developers.
 details index.
   * setting up sonic.jar
   * create "Action" class
-  * create "Service" class
+  * create "Service" class(​u​n​d​e​r​ ​c​o​n​s​t​r​u​c​t​i​o​n​.)
 
 === setting up sonic.jar ===
  ** download sonic.zip from this page [http://code.google.com/p/sonic-project/downloads/list]
