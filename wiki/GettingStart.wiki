@@ -83,3 +83,31 @@ details index.
        }
    }
    }}}
+ # get HttpServletRequest and print "message" on index.jsp.
+  {{{
+   package your.apps.actionpackage;
+
+   import com.googlecode.sonic.action.ActionSupport;
+   import com.googlecode.sonic.constant.ActionResult;
+   import com.googlecode.sonic.annotation.RequestMapping;
+   import com.googlecode.sonic.annotation.Result;
+
+   public class IndexAction extends ActionSupport {
+       private static final long serialVersionUID = 321255017934978886L;
+
+       @RequestMapping(to = "/index.gae", 
+           results = { @Result(code = SUCCESS, to = "/WEB-INF/jsp/index.jsp") })
+       public ActionResult index() throws Exception {
+           HttpServletRequest request = getRequest();
+	   request.setAttribute("message", getMessage());
+	   return SUCCESS;
+       }
+ 
+       private Object getMessage() {
+           return new StringBuilder()
+                      .append("Hello,").append("Sonic Project.")
+		      .toString();
+	}
+   }
+   }}}
+ # run jetty, and request to [ http://localhost:8888/index.gae ]
