@@ -15,9 +15,9 @@
  */
 package com.googlecode.sonic.service;
 
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.DELETED;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.ID;
-import static com.googlecode.sonic.constant.entity.properties.CommonProperties.CREATE_DATE;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.DELETED;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.ID;
+import static com.googlecode.sonic.constant.entity.properties.DefaultProperties.CREATE_DATE;
 
 import java.util.Iterator;
 import java.util.List;

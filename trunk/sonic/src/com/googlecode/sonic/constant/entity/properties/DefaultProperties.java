@@ -21,7 +21,7 @@ package com.googlecode.sonic.constant.entity.properties;
  * @author hisao takahashi
  * @since 1.0
  */
-public class CommonProperties implements PersistenceProperties {
+public class DefaultProperties implements PersistenceProperties {
 
 	/** ID */
 	public static final String ID = "id";
