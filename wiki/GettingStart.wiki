@@ -24,9 +24,9 @@ details index.
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>com.googlecode.sonic.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-      		<param-name>actionPackage</param-name>
-      		<param-value>your.apps.actionpackage</param-value>
-    	</init-param>
+      		    <param-name>actionPackage</param-name>
+      		    <param-value>your.apps.actionpackage</param-value>
+    	        </init-param>
 	</servlet>	
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
