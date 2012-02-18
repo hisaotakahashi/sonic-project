@@ -25,7 +25,7 @@ details index.
 		<servlet-class>com.googlecode.sonic.servlet.DispatcherServlet</servlet-class>
 		<init-param>
       		<param-name>actionPackage</param-name>
-      		<param-value>your.apps.action.package</param-value>
+      		<param-value>your.apps.actionpackage</param-value>
     	</init-param>
 	</servlet>	
 	<servlet-mapping>
@@ -37,11 +37,11 @@ details index.
 
 === create "Action" class ===
  # create Action package.
-   e.g.) your.apps.action.package
+   e.g.) your.apps.actionpackage
  # create Action class.
    Action class needs extends "com.googlecode.sonic.action.ActionSupport"
    {{{
-   package your.apps.action.package;
+   package your.apps.actionpackage;
 
    import com.googlecode.sonic.action.ActionSupport;
 
@@ -50,3 +50,36 @@ details index.
    }
    }}}
  # create public method has no argument.
+  {{{
+   package your.apps.actionpackage;
+
+   import com.googlecode.sonic.action.ActionSupport;
+   import com.googlecode.sonic.constant.ActionResult;
+
+   public class IndexAction extends ActionSupport {
+       private static final long serialVersionUID = 321255017934978886L;
+
+       public ActionResult index() throws Exception {
+           return SUCCESS;
+       }
+   }
+   }}}
+ # add @RequestMapping annotation to public method.
+   {{{
+   package your.apps.actionpackage;
+
+   import com.googlecode.sonic.action.ActionSupport;
+   import com.googlecode.sonic.constant.ActionResult;
+   import com.googlecode.sonic.annotation.RequestMapping;
+   import com.googlecode.sonic.annotation.Result;
+
+   public class IndexAction extends ActionSupport {
+       private static final long serialVersionUID = 321255017934978886L;
+
+       @RequestMapping(to = "/index.gae", 
+           results = { @Result(code = SUCCESS, to = "/WEB-INF/jsp/index.jsp") })
+       public ActionResult index() throws Exception {
+           return SUCCESS;
+       }
+   }
+   }}}
