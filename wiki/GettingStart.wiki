@@ -8,9 +8,13 @@ this page is guide for developers.
 
 = Details =
 details index.
-  * setting_up sonic.jar
+  * [ setting up sonic.jar ]
   * create "Action" class
   * create "Service" class
 
 === setting up sonic.jar ===
- ** download sonic.jar [http://code.google.com/p/sonic-project/downloads/list]
+ ** download sonic.jar from this page[http://code.google.com/p/sonic-project/downloads/list]
+ ** setting classpath your GAE project on eclipse.
+    # setting directory is "your-eclipse-project/war/WEB-INF/lib"
+    
+    
