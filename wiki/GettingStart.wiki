@@ -13,8 +13,25 @@ details index.
   * create "Service" class
 
 === setting up sonic.jar ===
- ** download sonic.jar from this page[http://code.google.com/p/sonic-project/downloads/list]
- ** setting classpath your GAE project on eclipse.
-    # setting directory is "your-eclipse-project/war/WEB-INF/lib"
+ ** download sonic.zip from this page[http://code.google.com/p/sonic-project/downloads/list]
+ *** setting your GAE project on eclipse.
+    # unzip sonic.zip
+    # put sonic.jar to directory that is "your-gae-project/war/WEB-INF/lib"
+    # setting classpath your-gae-project. sonic.jar and dependencies(sonic.zip includes dependencies)
+    # edit web.xml(add this servlet-mapping.)
+    {{{
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>com.googlecode.sonic.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+      		<param-name>actionPackage</param-name>
+      		<param-value>your.apps.action.package</param-value>
+    	</init-param>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.gae</url-pattern>
+	</servlet-mapping>
+    }}}
     
     
