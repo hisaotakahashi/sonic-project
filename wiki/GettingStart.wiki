@@ -10,7 +10,7 @@ this page is guide for developers.
 details index.
   * setting up sonic.jar
   * create "Action" class
-  * create "Service" class(​u​n​d​e​r​ ​c​o​n​s​t​r​u​c​t​i​o​n​.)
+  * create "Service" class (​u​n​d​e​r​ ​c​o​n​s​t​r​u​c​t​i​o​n​.)
 
 === setting up sonic.jar ===
  ** download sonic.zip from this page [http://code.google.com/p/sonic-project/downloads/list]
@@ -112,4 +112,134 @@ details index.
    }}}
  # run jetty, and request to [ http://localhost:8888/index.gae ]
    It is surely displayed on your browser "Hello,Sonic Project. ".
-   
+
+=== create "Service" class (​u​n​d​e​r​ ​c​o​n​s​t​r​u​c​t​i​o​n​.) ===
+ # create dto class.
+   XXXDto class needs extends DefaultDto.
+   {{{
+   public class BlogEntryDto extends DefaultDto {
+
+	private static final long serialVersionUID = -6315647904607823576L;
+
+	// entry title
+	private String title;
+	// main text
+	private Text text;
+	// tag1
+	private String tag1;
+	// tag2
+	private String tag2;
+	// tag3
+	private String tag3;
+	// comments
+	private List<BlogCommentDto> blogCommentDtoList;
+	// comment count.
+	private int commentCount;
+        
+        // getter, setter
+   }}}
+
+  # define Bigtables's kind in enum class.
+   {{{
+    public enum EntityKindNames implements KindNames {
+
+	BlogEntry("BlogEntry"), //
+	BlogComment("BlogCommnet");
+
+	private String name;
+
+	private EntityKindNames(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String getName() {
+		return name;
+	}
+}
+   }}}
+
+  # create Service class.
+    service class needs extends GenericService class.
+   {{{
+   public class BlogEntryService extends GenericService<BlogEntryDto> {
+
+	public BlogEntryService() {
+		kindOfEntity = EntityKindNames.BlogEntry.getName();
+	}
+   }}}
+  # add "get" method to Service class.
+  Only this processing, you can get "Entity" kind name is "BlogEntry"
+  {{{
+  public class BlogEntryService extends GenericService<BlogEntryDto> {
+
+     public BlogEntryService() {
+         kindOfEntity = EntityKindNames.BlogEntry.getName();
+     }
+
+     public BlogEntryDto get(Long id) throws ServiceException {
+         AssertionUtil.assertIsValid(ID, id);
+         try {
+             return entityToDto(super.select(id));
+         } catch (Exception e) {
+             throw new ServiceException(e);
+     }
+     
+     @Override
+     protected BlogEntryDto entityToDto(Entity entity) 
+         throws ServiceException {
+         BlogEntryDto dto = new BlogEntryDto();
+         if (entity == null)
+             return dto;
+         try {
+             ExBeanUtil.copyProperties(entity, dto);
+             return dto;
+         } catch (Exception e) {
+             throw new ServiceException(e);
+         }
+     }
+  }
+  }}}
+ # add "register" method to Service class.
+  {{{
+  public class BlogEntryService extends GenericService<BlogEntryDto> {
+
+     public BlogEntryService() {
+         kindOfEntity = EntityKindNames.BlogEntry.getName();
+     }
+
+     public BlogEntryDto get(Long id) throws ServiceException {
+         AssertionUtil.assertIsValid(ID, id);
+         try {
+             return entityToDto(super.select(id));
+         } catch (Exception e) {
+             throw new ServiceException(e);
+     }
+
+     public Key register(BlogEntryDto dto) {
+         AssertionUtil.assertIsValid(
+            BlogEntryDto.class.getCanonicalName(), dto);
+         Entity entity = createEntityByKey(getNextId());
+         entity.setProperty(TITLE, dto.getTitle());
+         entity.setProperty(TEXT, dto.getText());
+         entity.setProperty(TAG1, dto.getTag1());
+         entity.setProperty(TAG2, dto.getTag2());
+         entity.setProperty(TAG3, dto.getTag3());
+         return datastoreService.put(entity);
+     }
+
+     @Override
+     protected BlogEntryDto entityToDto(Entity entity) 
+         throws ServiceException {
+         BlogEntryDto dto = new BlogEntryDto();
+         if (entity == null)
+             return dto;
+         try {
+             ExBeanUtil.copyProperties(entity, dto);
+             return dto;
+         } catch (Exception e) {
+             throw new ServiceException(e);
+         }
+     }
+  }
+  }}}
