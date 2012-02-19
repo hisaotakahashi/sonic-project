@@ -138,8 +138,7 @@ details index.
         
         // getter, setter
    }}}
-
-  # define Bigtables's kind in enum class.
+ # define Bigtables's kind in enum class.
    {{{
     public enum EntityKindNames implements KindNames {
 
@@ -158,8 +157,7 @@ details index.
 	}
 }
    }}}
-
-  # create Service class.
+ # create Service class.
     service class needs extends GenericService class.
    {{{
    public class BlogEntryService extends GenericService<BlogEntryDto> {
@@ -168,7 +166,7 @@ details index.
 		kindOfEntity = EntityKindNames.BlogEntry.getName();
 	}
    }}}
-  # add "get" method to Service class.
+ # add "get" method to Service class.
   Only this processing, you can get "Entity" kind name is "BlogEntry"
   {{{
   public class BlogEntryService extends GenericService<BlogEntryDto> {
@@ -214,6 +212,7 @@ details index.
              return entityToDto(super.select(id));
          } catch (Exception e) {
              throw new ServiceException(e);
+         }
      }
 
      public Key register(BlogEntryDto dto) {
@@ -243,3 +242,14 @@ details index.
      }
   }
   }}}
+ # The other basic functions of Service class.
+   these methods are defined com.googlecode.sonic.service.GenericService class.
+   * Entity selectForcibly(Long id)
+   * List< Entity > selectAll()
+   * int count()
+   * void physicalDelete(Long id)
+   * Key update(Entity entity)
+   * Key logicalDelete(Long id)
+   * void truncate()
+   * long getNextId()
+ 
