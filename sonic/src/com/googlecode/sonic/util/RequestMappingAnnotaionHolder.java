@@ -117,8 +117,4 @@ public class RequestMappingAnnotaionHolder {
 		return holder.isEmpty();
 	}
 
-	// XXX 必要？
-	public static int getHashCode() {
-		return holder.hashCode();
-	}
 }
